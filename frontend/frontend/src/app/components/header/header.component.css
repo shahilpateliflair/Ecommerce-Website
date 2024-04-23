@@ -1,0 +1,385 @@
+body, h1, h2, h3, p, ul, li {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.navbar {
+  height: 100px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #fff;
+  padding: 10px 20px; 
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.sidebar .menu-btn {
+  cursor: pointer;
+  padding: 10px;
+}
+.logo img {
+  width: 100%; 
+  max-width: 100px; 
+  height: auto; 
+}
+.logo.disabled {
+  opacity: 0.5; 
+  pointer-events: none; 
+}
+.search-container {
+  display: flex;
+  align-items: center;
+}
+.search-container input[type="text"] {
+  width: 300px; 
+  padding: 8px;
+  border: none;
+  border-radius: 20px;
+  outline: none;
+  font-size: 14px;
+  background-color: rgb(253, 250, 248);
+}
+.search-container button {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  margin-left: 10px;
+}
+.nav-list {
+  display: flex;
+  align-items: center;
+}
+.nav-list li {
+  margin-right: 20px;
+}
+.nav-list li a {
+  text-decoration: none;
+  color: #333;
+  font-size: 16px;
+}
+.prof1 {
+  position: relative;
+}
+.prof1 .menu {
+  position: absolute;
+  top: 100%;
+  right: 0;
+  background-color: #fff;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  padding: 10px;
+  display: none;
+}
+.prof1:hover .menu {
+  display: block;
+}
+.prof1 .menu a {
+  display: block;
+  padding: 8px 16px;
+  color: #333;
+  text-decoration: none;
+}
+.prof1 .menu a:hover {
+  background-color: #f0f0f0;
+}
+
+.sidebar {
+  display: flex;
+  align-items: center;
+}
+/* .sidebar .menu-btn {
+  cursor: pointer;
+  padding: 10px;
+} */
+#menu {
+  position: fixed;
+  top: 0;
+  left: -250px;
+  width: 250px;
+  height: 100%;
+  background-color: #fff;
+  z-index: 1000;
+  transition: left 0.3s ease;
+}
+#menu.visible {
+  left: 0;
+}
+.menu-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #ccc;
+}
+.menu-group {
+  margin-top: 10px;
+  margin-bottom: 10px; 
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; 
+}
+.menu-item:hover {
+  background-color: #f0f0f0; 
+}
+.menu-item a {
+  text-decoration: none;
+  color: #333; 
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+}
+.menu-item i {
+  margin-right: 10px; 
+}
+.menu-item i.fa-home {
+  color: #007bff; 
+}
+.menu-item i.fa-shopping-cart {
+  color: #28a745; 
+}
+.menu-item i.fa-sign-in {
+  color: #dc3545;
+}
+.menu-item i.fa-about {
+  color: #bccf11;
+}
+ .menu-item i.fa-sign-out {
+  color: #1fdfec;
+}
+.fa-user-circle {
+  margin-left: 900px;
+  font-size: 36px; /* Adjust the font size as needed */
+}
+@media screen and (max-width: 768px) {
+  .search-container {
+    display: none; 
+  }
+  .logo img {
+    width: 80px; 
+  }
+}
+@media screen and (max-width: 576px) {
+ 
+  .logo img {
+    width: 60px; 
+  }
+}
+
+
+
+.menu-group1 {
+ 
+  padding-left: 12px;
+  margin-top: 10px;
+  margin-bottom: 10px;
+
+}
+.menu-group1 :hover{
+  background-color: #f0f0f0; 
+  
+}
+
+.menu-item1 {
+  position: relative;
+  display: flex;
+ margin-left: -8px;
+  padding: 10px;
+  border-radius: 5px;
+  transition: background-color 0.3s ease; 
+
+}
+
+
+.menu-item1 a {
+  display: flex;
+  align-items: center;
+  color: #333;
+  text-decoration: none;
+  font-weight: bold;
+  
+}
+
+.menu-item1 a i {
+  margin-right: 10px;
+  color: #555;
+ 
+
+}
+
+
+
+.menu-item1:hover .tags-dropdown {
+  display: block;
+}
+
+.tag-link {
+  display: block;
+  color: #333;
+  text-decoration: none;
+  padding: 5px 0;
+
+}
+
+.tag-link:hover {
+  color: #007bff;
+ 
+}
+
+.badge {
+  position: absolute;
+  
+  margin-left: 70px;
+  background-color: red; /* Adjust color as needed */
+  color: white;
+  font-size: 12px;
+  padding: 4px 8px;
+  border-radius: 50%;
+  transition: transform 0.3s ease; 
+}
+
+.badge.hide {
+  display: none;
+}
+
+.menu-item:hover,
+.menu-item:hover .badge {
+  transform: translateY(-2px);
+}
+
+
+
+.badge.hide {
+  display: none;
+}
+
+.menu-item:hover,
+.menu-item1:hover,
+.menu-item:hover .badge {
+  transform: translateY(-2px); 
+}
+.profile-info {
+  display: flex;
+  align-items: center;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  margin-right: 10px;
+}
+.modal-dialog {
+  max-width: 400px; /* Adjust the maximum width as needed */
+}
+
+.modal-content {
+  padding: 20px; /* Adjust the padding as needed */
+}
+
+.little-profile {
+  text-align: center;
+}
+
+.pro-img img {
+  width: 100px; 
+  height: 100px; 
+  border-radius: 50%; 
+  margin-bottom: 10px; 
+}
+
+.little-profile h3 {
+  margin-bottom: 5px; 
+}
+
+.little-profile p {
+  margin-bottom: 10px; 
+}
+.profile-name {
+  font-weight: bold;
+}
+
+.menu-item:hover .profile-image {
+  transform: scale(1.1);
+  transition: transform 0.3s ease-in-out;
+}
+
+
+
+.user-dropdown {
+  position: absolute;
+  top: 0;
+  left: 100%; /* Position the dropdown menu to the right side of the menu item */
+  z-index: 1000;
+  display: none;
+  min-width: 160px;
+  padding: 8px 0;
+  margin: 2px 0 0;
+  font-size: 14px;
+  text-align: left;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  box-shadow: 0 6px 12px rgba(0,0,0,.175);
+}
+
+.user-dropdown a {
+  display: block;
+  padding: 10px;
+  text-decoration: none;
+  color: #333;
+}
+
+.user-dropdown a:hover {
+  background-color: #f5f5f5;
+}
+
+.menu-group:hover .user-dropdown {
+  display: block;
+}
+/* Add this CSS to your styles.css or relevant CSS file */
+
+.menu-item1:hover .tags-dropdown {
+  display: block;
+  
+}
+.profile-icon1 {
+  margin-left: 900px;
+  display: inline-block;
+  position: relative;
+  width: 60px; /* Adjust the width as needed */
+  height: 60px; /* Adjust the height as needed */
+  border-radius: 50%; /* Make it round */
+  overflow: hidden;
+  margin-right: 10px; /* Adjust the margin as needed */
+}
+
+.profile-icon1 img {
+  width: 100%;
+  height: 100%;
+  object-fit: fill;
+}
+
+.profile-icon1::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.5); 
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out; 
+}
+.profile-icon1:hover::after {
+  opacity: 1;
+}
+
+.profile-icon1:hover img {
+  transform: scale(1.1); 
+}

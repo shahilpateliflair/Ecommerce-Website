@@ -1,0 +1,43 @@
+
+<div class="max-w-4xl px-4">
+    <h2 class="text-2xl font-bold ">order Items:</h2>
+    <!-- Your content here -->
+  </div>
+<table>
+  
+
+<th>Sr.No</th>
+    <th>products</th>
+    <th> Name</th>
+    <th>Size</th>
+    <th>Color</th>
+    <th>Product Price</th>
+    <th>Quantity</th>
+    <th>Total Price</th>
+
+
+    <tr   *ngFor="let cart of cart.items let sr = index">
+        <td>{{ sr + 1 }}</td>
+    <td>
+        <img  [src]="getImageUrlByColor(cart.selectedColor,cart.itm)" [alt]="cart.itm.name" />
+    </td>
+    <td>{{cart.itm.name}}</td>
+    <td>{{cart.selectedSize}}</td>
+    <td>{{cart.selectedColor}}</td>
+    <td>{{cart.itm.price | currency}}</td>
+    <td>{{cart.quantity}}</td>
+    <td>{{cart.price | currency}}</td>
+    </tr>
+    <tr *ngIf="cart && cart.items.length">
+        <td colspan="6"></td>
+        <td><strong> Total Items: {{ cart.TotalCount }} </strong><strong></strong></td>
+       
+  
+        <td><strong>   Total price: {{ cart.TotalPrice | currency }}</strong></td>
+
+    </tr>
+
+</table>
+
+
+  

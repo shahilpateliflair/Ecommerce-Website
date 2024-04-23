@@ -1,0 +1,582 @@
+<app-header></app-header>
+
+<div class="bg-white">
+  <div class="pt-6">
+    <div
+      class="mx-auto mt-6 max-w-2xl sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:gap-x-8 lg:px-8"
+    >
+      <div class="hidden lg:grid lg:grid-cols-1 lg:gap-y-8"></div>
+
+      <ng-container *ngIf="items"></ng-container>
+      <div class="image-container1">
+        <div
+          class="aspect-h-5 aspect-w-4 lg:aspect-h-4 lg:aspect-w-3 sm:overflow-hidden sm:rounded-lg"
+        >
+          <img
+            [src]="getImageUrlByColor(selectedColor, items)"
+            class="h-full w-full object-cover object-center"
+          />
+        </div>
+      </div>
+    </div>
+
+    <div
+      class="mx-auto max-w-2xl px-4 pb-16 pt-10 sm:px-6 lg:grid lg:max-w-7xl lg:grid-cols-3 lg:grid-rows-[auto,auto,1fr] lg:gap-x-8 lg:px-8 lg:pb-24 lg:pt-16"
+    >
+      <div class="lg:col-span-2 lg:border-r lg:border-gray-200 lg:pr-8">
+        <h1 class="text-2xl font-bold tracking-tight sm:text-3xl">
+          {{ items?.name }}
+        </h1>
+      </div>
+
+      <div class="mt-4 lg:row-span-3 lg:mt-0">
+        <h2 class="sr-only">Product information</h2>
+        <!-- <p class="text-3xl tracking-tight text-gray-900">{{ items?.price|currency }} <span><s> {{items?.MRP | currency }}</s> </span></p>
+          <p class="text-3xl tracking-tight text-gray-900">({{ items?.off|currency }} off)</p> -->
+        <p class="text-3xl tracking-tight">
+          {{ items?.price | currency }}
+          <span
+            ><s> {{ items?.MRP | currency }}</s></span
+          >
+        </p>
+        <p class="text-3xl tracking-tight">({{ items?.off | currency }} off)</p>
+        <div class="mt-6">
+          <button
+            type="button"
+            class="flex mt-10 items-center justify-center focus:outline-none"
+            (click)="toggleWishlist()"
+          >
+            <svg
+              *ngIf="isInWishlist; else emptyHeart"
+              class="h-8 w-8 text-red-600"
+              fill="currentColor"
+              viewBox="0 0 24 24"
+              stroke="none"
+            >
+              <path
+                d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"
+              ></path>
+            </svg>
+            <ng-template #emptyHeart>
+              <svg
+                *ngIf="!isInWishlist"
+                class="h-8 w-8 text-gray-600"
+                fill="none"
+                stroke="currentColor"
+                viewBox="0 0 24 24"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  stroke-linecap="round"
+                  stroke-linejoin="round"
+                  stroke-width="2"
+                  d="M12 19l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3c3.08 0 5.5 2.42 5.5 5.5 0 3.78-3.4 6.86-8.55 11.54L12 19z"
+                >
+                  Add To wishlist
+                </path>
+              </svg>
+            </ng-template>
+          </button>
+        </div>
+
+        <form class="mt-10">
+          <div>
+            <h3 class="text-sm font-medium">Color</h3>
+
+            <fieldset class="mt-4">
+              <legend class="sr-only">Choose a color</legend>
+              <div class="flex items-center space-x-3">
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="color-choice"
+                    value="White"
+                    class="sr-only"
+                    (change)="selectedColor = 'White'"
+                    aria-labelledby="color-choice-0-label"
+                  />
+                  <span
+                    id="color-choice-0-label"
+                    class="h-12 w-12 bg-white rounded-full border border-black border-opacity-10"
+                    [class]="
+                      selectedColor === 'White'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                  ></span>
+                </label>
+
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="color-choice"
+                    value="Gray"
+                    class="sr-only"
+                    (change)="selectedColor = 'Gray'"
+                    aria-labelledby="color-choice-0-label"
+                  />
+                  <span
+                    id="color-choice-0-label"
+                    class="h-12 w-12 bg-gray-600 rounded-full border border-black border-opacity-10"
+                    [class]="
+                      selectedColor === 'Gray'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                  ></span>
+                </label>
+
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="color-choice"
+                    value="Blue"
+                    class="sr-only"
+                    (change)="selectedColor = 'Blue'"
+                    aria-labelledby="color-choice-1-label"
+                  />
+                  <span
+                    id="color-choice-1-label"
+                    class="h-12 w-12 bg-blue-500 rounded-full border border-black border-opacity-10"
+                    [class]="
+                      selectedColor === 'Blue'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                  ></span>
+                </label>
+
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="color-choice"
+                    value="Red"
+                    class="sr-only"
+                    (change)="selectedColor = 'Red'"
+                    aria-labelledby="color-choice-2-label"
+                  />
+                  <span
+                    id="color-choice-2-label"
+                    class="h-12 w-12 bg-red-500 rounded-full border border-black border-opacity-10"
+                    [class]="
+                      selectedColor === 'Red'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                  ></span>
+                </label>
+
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-full p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="color-choice"
+                    value="Black"
+                    class="sr-only"
+                    (change)="selectedColor = 'Black'"
+                    aria-labelledby="color-choice-0-label"
+                  />
+                  <span
+                    id="color-choice-0-label"
+                    class="h-12 w-12 bg-black rounded-full border border-black border-opacity-10"
+                    [class]="
+                      selectedColor === 'Black'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                  ></span>
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <!-- <button type="submit" class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2" (click)="addToCart()" [disabled]="!items">Add to Cart</button> -->
+        </form>
+
+        <form class="mt-10">
+          <div>
+            <h3 class="text-sm font-medium">Size</h3>
+            <fieldset class="mt-4">
+              <legend class="sr-only">Choose a size</legend>
+              <div class="flex items-center space-x-3">
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-md p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="size-choice"
+                    value="S"
+                    class="sr-only"
+                    (change)="selectedSize = 'S'"
+                    aria-labelledby="size-choice-2-label"
+                  />
+                  <span
+                    id="size-choice-2-label"
+                    class="h-12 w-16 bg-gray-200 rounded-md border border-black border-opacity-10 flex items-center justify-center text-center text-sm font-medium"
+                    [class]="
+                      selectedSize === 'S'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                    >S</span
+                  >
+                </label>
+
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-md p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="size-choice"
+                    value="M"
+                    class="sr-only"
+                    (change)="selectedSize = 'M'"
+                    aria-labelledby="size-choice-3-label"
+                  />
+                  <span
+                    id="size-choice-3-label"
+                    class="h-12 w-16 bg-gray-200 rounded-md border border-black border-opacity-10 flex items-center justify-center text-center text-sm font-medium"
+                    [class]="
+                      selectedSize === 'M'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                    >M</span
+                  >
+                </label>
+                <label
+                  class="relative -m-0.5 flex cursor-pointer items-center justify-center rounded-md p-0.5 focus:outline-none ring-gray-400"
+                >
+                  <input
+                    type="radio"
+                    name="size-choice"
+                    value="L"
+                    class="sr-only"
+                    (change)="selectedSize = 'L'"
+                    aria-labelledby="size-choice-1-label"
+                  />
+                  <span
+                    id="size-choice-1-label"
+                    class="h-12 w-16 bg-gray-200 rounded-md border border-black border-opacity-10 flex items-center justify-center text-center text-sm font-medium"
+                    [class]="
+                      selectedSize === 'L'
+                        ? 'ring-2 ring-indigo-500'
+                        : 'ring-gray-400'
+                    "
+                    >L</span
+                  >
+                </label>
+              </div>
+            </fieldset>
+          </div>
+
+          <button
+            type="submit"
+            class="mt-10 flex w-full items-center justify-center rounded-md border border-transparent bg-indigo-600 px-8 py-3 text-base font-medium text-white hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2"
+            (click)="addToCart()"
+            [disabled]="!items"
+          >
+            Add to Cart
+          </button>
+        </form>
+      </div>
+
+      <div
+        class="py-10 lg:col-span-2 lg:col-start-1 lg:border-r lg:border-gray-200 lg:pb-16 lg:pr-8 lg:pt-6"
+      >
+        <div>
+          <h3 class="sr-only">Description</h3>
+
+          <div class="space-y-6">
+            <p class="text-base"><b>Descriptin: </b>{{ items?.description }}</p>
+          </div>
+        </div>
+
+        <div>
+          <h3 class="sr-only">tags</h3>
+
+          <div class="space-y-6">
+            <!-- <p class="text-base "><b>tags: </b>{{items?.tag}}</p> -->
+            <!-- <a routerLink="/tag/{{tag}}">{{tag}}</a> -->
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h3 class="text-sm font-medium">Highlights</h3>
+
+          <div class="mt-4">
+            <ul role="list" class="list-disc space-y-2 pl-4 text-sm">
+              <li class="text-gray-400">
+                <span class="text-gray-600">Hand cut and sewn locally</span>
+              </li>
+              <li class="text-gray-400">
+                <span class="text-gray-600"
+                  >Dyed with our proprietary colors</span
+                >
+              </li>
+              <li class="text-gray-400">
+                <span class="text-gray-600">Pre-washed &amp; pre-shrunk</span>
+              </li>
+              <li class="text-gray-400">
+                <span class="text-gray-600">Ultra-soft 100% cotton</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="mt-10">
+          <h2 class="text-sm font-medium">Details</h2>
+
+          <div class="mt-4 space-y-6">
+            <p class="text-sm text-gray-600">
+              The 6-Pack includes two black, two white, and two heather gray
+              Basic Tees. Sign up for our subscription service and be the first
+              to get new, exciting colors, like our upcoming &quot;Charcoal
+              Gray&quot; limited release.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="box-review">
+  <div class="post-review">
+    <div class="card">
+      <div class="row">
+        <div class="col-2" *ngFor="let profile of profiles">
+          <!-- <img
+              src="https://i.imgur.com/xELPaag.jpg"
+              width="70"
+              class="rounded-circle mt-2"
+            /> -->
+          <img
+            [src]="'http://localhost:42000/' + profile.imageUrl"
+            width="100"
+            height="100"
+            class="rounded-circle mt-2"
+          />
+        </div>
+
+        <div class="col-10">
+          <!-- <h2 class="text-xl font-semibold text-black-900">{{ users.name }}</h2> -->
+          <div  *ngFor="let profile of profiles">
+          <h2 class="text-xl font-semibold text-black-900">{{ profile.name }}</h2></div>
+          <div class="comment-box ml-2">
+            <h4 class="text-lg font-medium text-gray-700">Add a comment</h4>
+
+            <form (submit)="submitReview()">
+              <div class="rating">
+                <input
+                  type="radio"
+                  name="rating"
+                  value="5"
+                  id="5"
+                  [(ngModel)]="review.rating"
+                  [ngModelOptions]="{ standalone: true }"
+                /><label for="5">☆</label>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="4"
+                  id="4"
+                  [(ngModel)]="review.rating"
+                  [ngModelOptions]="{ standalone: true }"
+                /><label for="4">☆</label>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="3"
+                  id="3"
+                  [(ngModel)]="review.rating"
+                  [ngModelOptions]="{ standalone: true }"
+                /><label for="3">☆</label>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="2"
+                  id="2"
+                  [(ngModel)]="review.rating"
+                  [ngModelOptions]="{ standalone: true }"
+                /><label for="2">☆</label>
+                <input
+                  type="radio"
+                  name="rating"
+                  value="1"
+                  id="1"
+                  [(ngModel)]="review.rating"
+                  [ngModelOptions]="{ standalone: true }"
+                /><label for="1">☆</label>
+              </div>
+
+              <div class="comment-area">
+                <textarea
+                  #commentText
+                  class="form-control"
+                  placeholder="what is your view?"
+                  rows="4"
+                  [(ngModel)]="review.comment"
+                  name="comment"
+                ></textarea>
+              </div>
+
+              <div class="comment-btns mt-2">
+                <div class="row">
+                  <div class="col-6"></div>
+
+                  <div class="col-6">
+                    <div class="pull-right">
+                      <button class="btn btn-success send btn-sm" type="submit">
+                        Send <i class="fa fa-long-arrow-right ml-1"></i>
+                      </button>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="get-review">
+    <h1 class="text-3xl font-bold text-gray-800" *ngIf="reviews.length > 0">
+      Recent Comments
+    </h1>
+
+    <link
+      href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+      rel="stylesheet"
+      integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN"
+      crossorigin="anonymous"
+    />
+    <div class="container">
+      <div class="row">
+        <div class="col-md-8">
+          <!-- <div *ngFor="let review of reviews">
+            <div *ngFor="let profile of review.userProfile">
+              <h6 class="mb-0"><strong>{{ profile.name}}</strong></h6>
+            </div>
+          </div> -->
+          
+          <div
+            class="media g-mb-30 media-comment"
+            *ngFor="let review of reviews"
+          >
+          
+            <div class="media-body u-shadow-v18 g-bg-secondary g-pa-30">
+              <div class="g-mb-15">
+                <div *ngFor="let profile of profiles">
+                 
+                  <div class="media">
+                    <!-- <img
+                      class="align-self-start mr-3 rounded-circle"
+                      *ngIf="profile.imageUrl"
+                      [src]="'http://localhost:42000/' + profile.imageUrl"
+                      alt="Profile Image"
+                      width="50"
+                      height="50"
+                    /> -->
+                    <div class="media-body">
+                      <div class="d-flex justify-content-between align-items-center">
+                        <!-- <h5 class="h5 g-color-gray-dark-v1 mb-0">{{ profile.name }}</h5> -->
+                      
+                      </div>
+                        <span class="g-color-gray-dark-v4 g-font-size-12">
+                          {{ review.createdAt | date }}
+                        </span>
+                    </div>
+                  </div>
+                  <p>{{ review.comment }}</p>
+                 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!--   
+  <div class="star-rating1">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+  
+    <span class="heading">User Rating</span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star checked"></span>
+    <span class="fa fa-star"></span>
+    <p>4.1 average based on 254 reviews.</p>
+    <hr style="border: 3px solid #f1f1f1" />
+  
+    <div class="row">
+      <div class="side">
+        <div>5 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-5"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>150</div>
+      </div>
+      <div class="side">
+        <div>4 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-4"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>63</div>
+      </div>
+      <div class="side">
+        <div>3 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-3"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>15</div>
+      </div>
+      <div class="side">
+        <div>2 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-2"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>6</div>
+      </div>
+      <div class="side">
+        <div>1 star</div>
+      </div>
+      <div class="middle">
+        <div class="bar-container">
+          <div class="bar-1"></div>
+        </div>
+      </div>
+      <div class="side right">
+        <div>20</div>
+      </div>
+    </div>
+  </div>
+   -->

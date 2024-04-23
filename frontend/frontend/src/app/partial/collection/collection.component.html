@@ -1,0 +1,367 @@
+<app-admin-header></app-admin-header>
+
+<!-- <h1 class="text-2xl font-bold mt-4">Product Collections</h1> -->
+  
+<div *ngIf="mensProducts.length > 0">
+  <section class="bg-gray-100 py-4 mt-4">
+    <div class="max-w-4xl px-4">
+      <h2 class="text-2xl font-bold ">Mens Products</h2>
+      <!-- Your content here -->
+    </div>
+  </section>
+  <div class="product-container">
+    <div *ngFor="let product of mensProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+      <div class="imagecontainer">
+       
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <!-- <img [src]="'http://localhost:42000/uploadimage/' + product.imageUrl" />  -->
+              <img [src]="getProductImageUrl(product)" /> 
+              <!-- <img [src]="'https://e-commerce-l2js3q893-shahil-patels-projects.vercel.app/' + product.imageUrl" /> -->
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2><strong>{{ product.name }}</strong></h2>
+                <p><strong>Description: </strong>  {{ product.description }}</p>
+                <p ><strong>Price:</strong> {{ product.price | currency}}</p>
+                <p class="Mrp"><strong>MRP:</strong> {{ product.MRP | currency }}</p>
+                <p><strong>Off:</strong>  {{ product.off |currency }}</p>
+                <p><strong>Origins: </strong> {{ product.origins }}</p>
+                <p><strong>Deliver Time: </strong> {{ product.deliverTime }} <span> Days</span></p>
+                <!-- <button class="button1">Add To cart</button> -->
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">
+                    Edit
+                  </button>
+        
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+      
+         
+    </div>
+    </div>
+  </div>
+
+
+
+  
+<div *ngIf="womensProducts.length > 0">
+  <!-- <h2>Women's Products</h2> -->
+  <section class="bg-gray-100 py-4 mt-4">
+    <div class="max-w-4xl px-4">
+      <h2 class="text-2xl font-bold ">Womens Products</h2>
+      <!-- Your content here -->
+    </div>
+  </section>
+  <div class="product-container" >
+    <div *ngFor="let product of womensProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+      <div class="imagecontainer">
+       
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <!-- <img [src]="'http://localhost:42000/uploadimage/' + product.imageUrl" />  -->
+              <img [src]="getProductImageUrl(product)" /> 
+              <!-- <img [src]="'https://e-commerce-l2js3q893-shahil-patels-projects.vercel.app/' + product.imageUrl" /> -->
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2><strong>{{ product.name }}</strong></h2>
+                <p><strong>Description: </strong> {{ product.description }}</p>
+                <p><strong>Price:</strong>  {{ product.price | currency}}</p>
+                <p class="Mrp"><strong>MRP:</strong> {{ product.MRP| currency }}</p>
+                <p><strong>Off:</strong> {{ product.off |currency}}</p>
+                <p><strong>Origins: </strong> {{ product.origins }}</p>
+                <p><strong>Deliver Time: </strong>  {{ product.deliverTime }}<span> Days</span></p>
+                <!-- <button class="button1">Add To cart</button> -->
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">
+                    Edit
+                  </button>
+        
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     
+      </div>
+    </div>
+  </div>
+</div>
+
+<div *ngIf="electronicsProducts.length > 0">
+  <!-- <h2>Men's Products</h2>
+   -->
+   <section class="bg-gray-100 py-4 mt-4">
+    <div class="max-w-4xl px-4">
+      <h2 class="text-2xl font-bold ">Electronics Products</h2>
+      <!-- Your content here -->
+    </div>
+  </section>
+  
+  <div class="product-container">
+    <div *ngFor="let product of electronicsProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+      <div class="imagecontainer">
+       
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img [src]="getProductImageUrl(product)" /> 
+                              <!-- <img [src]="'http://localhost:42000/uploadimage/' + product.imageUrl" />  -->
+              <!-- <img [src]="'https://e-commerce-l2js3q893-shahil-patels-projects.vercel.app/' + product.imageUrl" /> -->
+            
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2><strong>{{ product.name }}</strong></h2>
+                <p><strong>Description: </strong>  {{ product.description }}</p>
+                <p><strong>Price:</strong>  {{ product.price|currency }}</p>
+                <p class="Mrp"><strong>MRP:</strong> {{ product.MRP |currency}}</p>
+                <p><strong>Off:</strong>{{ product.off|currency }}</p>
+                <p><strong>Origins: </strong>{{ product.origins }}</p>
+                <p><strong>Deliver Time: </strong>  {{ product.deliverTime }}<span> Days</span></p>
+                <!-- <button class="button1">Add To cart</button> -->
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">
+                    Edit
+                  </button>
+        
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">
+                    Delete
+                  </button>
+                </div>
+              </div>
+            </div>
+          </div>
+          </div>
+       
+         </div>
+    </div>
+    </div>
+  </div>
+
+<!-- 
+<div class="product-container" *ngIf="electronicsProducts.length > 0">
+  <h2>Electronics</h2>
+  <div class="product-container">
+    <div *ngFor="let product of electronicsProducts" class="product-card">
+      <div class="product-info">
+        <div class="product-name"> <h2>{{ product.name }}</h2></div>
+        <div class="product-description"> <p>Description: {{ product.description }}</p></div>
+         <div class="product-price"><p>Price: {{ product.price }}</p></div>
+         <div class="product-mrp"> <p>MRP: {{ product.MRP }}</p></div>
+         <div class="product-off"> <p>Off: {{ product.off }}</p></div>
+         <div class="product-origin"> <p>Origins: {{ product.origins }}</p></div>
+         <div class="product-deliverytime"></div><p>Deliver Time: {{ product.deliverTime }}</p></div>
+
+        <div class="imagecontainer">
+        <img [src]="'http://localhost:42000/' + product.imageUrl" />
+      </div>
+        <div class="button-group">
+          <button (click)="editProduct(product._id)" class="btn-delete">
+            Edit
+          </button>
+
+          <button (click)="deleteProduct(product._id)" class="btn-delete">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+
+
+
+
+<div class="product-container" *ngIf="mensProducts.length > 0">
+  <h2>mens</h2>
+  <div class="product-container">
+    <div *ngFor="let product of mensProducts" class="product-card">
+      <div class="product-info">
+        <div class="product-name"> <h2>{{ product.name }}</h2></div>
+        <div class="product-description"> <p>Description: {{ product.description }}</p></div>
+         <div class="product-price"><p>Price: {{ product.price }}</p></div>
+         <div class="product-mrp"> <p>MRP: {{ product.MRP }}</p></div>
+         <div class="product-off"> <p>Off: {{ product.off }}</p></div>
+         <div class="product-origin"> <p>Origins: {{ product.origins }}</p></div>
+         <div class="product-deliverytime"></div><p>Deliver Time: {{ product.deliverTime }}</p></div>
+<div class="imagecontainer">
+        <img [src]="'http://localhost:42000/' + product.imageUrl" />
+      </div>
+        <div class="button-group">
+          <button (click)="editProduct(product._id)" class="btn-delete">
+            Edit
+          </button>
+
+          <button (click)="deleteProduct(product._id)" class="btn-delete">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
+ 
+<div class="product-container" *ngIf="womensProducts.length > 0">
+  <h2>womens</h2>
+  <div class="product-container">
+    <div *ngFor="let product of womensProducts" class="product-card">
+      <div class="product-info">
+       <div class="product-name"> <h2>{{ product.name }}</h2></div>
+       <div class="product-description"> <p>Description: {{ product.description }}</p></div>
+        <div class="product-price"><p>Price: {{ product.price }}</p></div>
+        <div class="product-mrp"> <p>MRP: {{ product.MRP }}</p></div>
+        <div class="product-off"> <p>Off: {{ product.off }}</p></div>
+        <div class="product-origin"> <p>Origins: {{ product.origins }}</p></div>
+        <div class="product-deliverytime"></div><p>Deliver Time: {{ product.deliverTime }}</p></div>
+        <div class="imagecontainer">
+        <img [src]="'http://localhost:42000/' + product.imageUrl" />
+      </div>
+        <div class="button-group">
+          <button (click)="editProduct(product._id)" class="btn-delete">
+            Edit
+          </button>
+
+          <button (click)="deleteProduct(product._id)" class="btn-delete">
+            Delete
+          </button>
+        </div>
+      </div>
+    </div>
+  </div> -->
+
+<!-- 
+ <section class="bg-gray-100 py-4 mt-4">
+  <div class="max-w-4xl px-4">
+    <h2 class="text-2xl font-bold ">Electronics Products</h2>
+   
+  </div>
+</section>
+<div *ngIf="electronicsProducts.length > 0">
+  
+  <div class="product-container">
+    <div *ngFor="let product of electronicsProducts" class="product-card">
+      <div class="imagecontainer">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img class="img-fluid" [src]="'http://localhost:42000/' + product.imageUrl" />
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2>{{ product.name }}</h2>
+                <p>Description: {{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p>MRP: {{ product.MRP }}</p>
+                <p>Off: {{ product.off }}</p>
+                <p>Origins: {{ product.origins }}</p>
+                <p>tags: {{ product.tag }}</p>
+                <p>Deliver Time: {{ product.deliverTime }}</p>
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">Edit</button>
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="bg-gray-100 py-4 mt-4">
+  <div class="max-w-4xl px-4">
+    <h2 class="text-2xl font-bold ">Mens Products</h2>
+  
+  </div>
+</section>
+<div *ngIf="mensProducts.length > 0">
+ 
+  <div class="product-container">
+    <div *ngFor="let product of mensProducts" class="product-card">
+      <div class="imagecontainer">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img [src]="'http://localhost:42000/' + product.imageUrl" />
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2>{{ product.name }}</h2>
+                <p>Description: {{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p>MRP: {{ product.MRP }}</p>
+                <p>Off: {{ product.off }}</p>
+                <p>Origins: {{ product.origins }}</p>
+                <p>tags: {{ product.tag }}</p>
+                <p>Deliver Time: {{ product.deliverTime }}</p>
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">Edit</button>
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<section class="bg-gray-100 py-4 mt-4">
+  <div class="max-w-4xl px-4">
+    <h2 class="text-2xl font-bold ">Womens Products</h2>
+  
+  </div>
+</section>
+<div *ngIf="womensProducts.length > 0">
+ 
+  <div class="product-container" >
+    <div *ngFor="let product of womensProducts" class="product-card">
+      <div class="imagecontainer">
+        <div class="flip-card">
+          <div class="flip-card-inner">
+            <div class="flip-card-front">
+              <img [src]="'http://localhost:42000/' + product.imageUrl" />
+            </div>
+            <div class="flip-card-back">
+              <div class="product-details">
+                <h2>{{ product.name }}</h2>
+                <p>Description: {{ product.description }}</p>
+                <p>Price: {{ product.price }}</p>
+                <p>MRP: {{ product.MRP }}</p>
+                <p>Off: {{ product.off }}</p>
+                <p>Origins: {{ product.origins }}</p>
+                <p>tags: {{ product.tag }}</p>
+                <p>Deliver Time: {{ product.deliverTime }}</p>
+                <div class="button-group">
+                  <button (click)="editProduct(product._id)" class="btn-delete">Edit</button>
+                  <button (click)="deleteProduct(product._id)" class="btn-delete">Delete</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+ -->
+
+

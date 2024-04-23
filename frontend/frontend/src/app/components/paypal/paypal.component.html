@@ -1,0 +1,79 @@
+<!-- <input type="file" (change)="onFileSelected($event)" multiple>
+<div *ngFor="let image of selectedImages">
+  <input type="text" [(ngModel)]="image.name" placeholder="Enter name for {{ image.file.name }}">
+</div>
+<button (click)="uploadImages()">Upload Images</button> -->
+<app-admin-header></app-admin-header>
+
+<div class="container">
+    <!-- <div class="fixed">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-adding-product-to-cart-4268110-3550574.png" alt="Add Product">
+    </div> -->
+<form
+  (submit)="addProduct()"
+  enctype="multipart/form-data"
+  class="form-container"
+  [formGroup]="productForm"
+>
+<h1>Add Product</h1>
+  <label for="name">Name:</label>
+  <input type="text" id="name"     formControlName="name" required />
+
+  
+  <label for="imageUrl" class="form-label">Color 1</label>
+        <input type="file" class="form-control" name="color"  (change)="onImageSelected($event)" multiple>
+        <label for="imageUrl" class="form-label">Color 2</label>
+        <input type="file" class="form-control" name="color"  (change)="onImageSelected($event)" multiple>
+        <label for="imageUrl" class="form-label">Color 3</label>
+        <input type="file" class="form-control" name="color"  (change)="onImageSelected($event)" multiple>
+        <label for="imageUrl" class="form-label">Color 4</label>
+        <input type="file" class="form-control" name="color"  (change)="onImageSelected($event)" multiple>
+ 
+  
+
+  <label for="description">Description:</label>
+  <input
+    type="text"
+    id="description"
+  
+    formControlName="description"
+    required
+  />
+  <label for="categories">categories:</label>
+  <select formControlName="category">
+    <option value="men">Men</option>
+    <option value="women">Women</option>
+    <option value="electronics">Electronics</option>
+    <!-- Add other categories as needed -->
+  </select>
+  <!-- accept="image/*" -->
+  <label for="MRP">MRP</label>
+  <input type="text" id="MRP"    formControlName="MRP" required />
+
+  <label for="off">Off:</label>
+  <input type="text" id="off" formControlName="off"    formControlName="off" required />
+
+  <label for="tag">Tag:</label>
+  <input type="text" id="tag" formControlName="tag"    formControlName="tag" required />
+
+  <label for="price">Price:</label>
+  <input type="number" id="price"  formControlName="price" required />
+
+  <label for="origins">Origins:</label>
+  <input type="text" id="origins"  formControlName="origins" required />
+
+
+  <label for="deliverTime">Deliver Time:</label>
+  <input
+    type="number"
+    id="Deliver"
+    formControlName="deliverTime"
+   
+    required
+  />
+  
+  <button type="submit" class="submit-button">Add Product</button>
+</form>
+
+</div>
+

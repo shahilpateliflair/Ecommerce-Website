@@ -1,0 +1,135 @@
+/* component.css
+.custom-table {
+    width: 100%;
+    border-collapse: collapse;
+    border-spacing: 0;
+  }
+  
+  .custom-table th,
+  .custom-table td {
+    padding: 12px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .custom-table th {
+    background-color: #f2f2f2;
+  }
+  
+  .custom-table tbody tr:nth-child(even) {
+    background-color: #f2f2f2;
+  }
+  
+  .custom-table tbody tr:hover {
+    background-color: #ddd;
+  }
+  
+  .highlighted {
+    background-color: #ffcccc;
+  }
+   */
+   /* component.css */
+
+/* Table styles */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 8px;
+  text-align: left;
+  border-bottom: 1px solid #ddd;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+/* Highlighted rows */
+.custom-table .highlighted {
+  background-color: #ffffcc;
+}
+
+/* Hover effect */
+.custom-table tbody tr:hover {
+  background-color: #f5f5f5;
+}
+
+/* Animation for table rows */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.custom-table tbody tr {
+  animation: fadeInUp 0.3s ease-in-out;
+}
+
+/* Animation delay for table rows */
+.custom-table tbody tr:nth-child(odd) {
+  animation-delay: 0.1s;
+}
+
+.custom-table tbody tr:nth-child(even) {
+  animation-delay: 0.2s;
+}
+
+/* List styles */
+.custom-table ul {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+/* Item styles within the list */
+.custom-table li {
+  margin-bottom: 4px;
+}
+.table-container {
+  overflow-x: auto;
+}
+@media screen and (max-width: 768px) {
+  .custom-table th,
+  .custom-table td {
+    padding: 6px;
+    font-size: 0.9rem;
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .custom-table th,
+  .custom-table td {
+    padding: 4px;
+    font-size: 0.8rem;
+  }
+}
+/* Custom table styles */
+.custom-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.custom-table th,
+.custom-table td {
+  padding: 8px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+.custom-table th {
+  background-color: #f2f2f2;
+}
+
+/* Highlight rows where total price exceeds 100 */
+.highlighted {
+  background-color: #ffeeba;
+}

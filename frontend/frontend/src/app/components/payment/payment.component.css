@@ -1,0 +1,110 @@
+/* 
+#orderContainer
+{
+    font-family: 'Lato', sans-serif;
+    width: 80%;
+    padding-top: 250px;
+    padding-bottom: 150px;
+    margin: auto;
+    text-align: center;
+}
+#orderContainer i
+{
+    color: rgb(5, 129, 187);
+    padding-bottom: 30px;
+    font-size: 10em;
+}
+#aboutCheck p
+{
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+#aboutCheck h1
+{
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+
+
+@media(max-width: 700px)
+{
+    #orderContainer i
+    {
+        font-size: 8em;
+        padding-bottom: 30px;
+    }
+    h1
+    {
+        font-size: 18px;
+    }
+    p
+    {
+        font-size: 15px;
+    }
+} */
+
+#orderContainer {
+    font-family: 'Lato', sans-serif;
+    width: 80%;
+    padding-top: 250px;
+    padding-bottom: 150px;
+    margin: auto;
+    text-align: center;
+}
+
+#orderContainer i {
+    color: rgb(5, 129, 187);
+    padding-bottom: 30px;
+    font-size: 10em;
+}
+
+#aboutCheck p {
+    font-weight: 100;
+    letter-spacing: 1px;
+}
+
+#aboutCheck h1 {
+    letter-spacing: 1px;
+    word-spacing: 1px;
+}
+
+/* Button Styles */
+button {
+    background-color: #45a049;
+    border: none;
+    color: white;
+    padding: 10px 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-top: 20px;
+    align-content: space-between;
+    
+}
+.review{
+    margin-right: 20px;
+}
+button:hover {
+    background-color: #4CAF50;
+}
+
+/* Responsive Styles */
+@media(max-width: 700px) {
+    #orderContainer i {
+        font-size: 8em;
+        padding-bottom: 30px;
+    }
+
+    h1 {
+        font-size: 18px;
+    }
+
+    p {
+        font-size: 15px;
+    }
+}

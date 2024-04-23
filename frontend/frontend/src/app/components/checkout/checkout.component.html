@@ -1,0 +1,62 @@
+
+
+<div *ngIf="isAuth">
+ <app-header></app-header>
+<div class="container">
+   <div class="content">
+    
+    
+  <form [formGroup]="checkoutForm" (ngSubmit)="createOrder()" >
+    <div class="shipping">
+      <h1 class="shipping-title">Shipping</h1>
+      <p class="shipping-description">Please enter your shipping details.</p>
+    </div>
+    <div class="form-group col-span-2 " >
+      <label for="name">Name</label>
+      <input type="text" class="form-control" id="name" formControlName="name" required>
+    </div>
+    <div class="form-group">
+      <label for="altName">Alternative Name</label>
+      <input type="text" class="form-control" id="altName"  formControlName="alternativeName">
+    </div>
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" class="form-control" id="email" required formControlName="email">
+    </div>
+    
+    <div class="form-group ">
+      <label for="address">Address</label>
+      <input type="text" class="form-control" id="address" required formControlName="address">
+    </div>
+    <div class="form-group">
+      <label for="address1">Alternative Address</label>
+      <input type="text" class="form-control" id="address1" formControlName="alternativeAddress">
+    </div>
+  
+    <div class="form-group">
+      <label for="altMobile">Alternative Mobile No</label>
+      <input type="number" class="form-control" id="altMobile" formControlName="alternativeMobile">
+    </div>
+  
+    <div class="form-group">
+      <label for="mobile">Mobile No</label>
+      <input type="number" class="form-control" id="mobile" required formControlName="mobile">
+    </div>
+   
+    
+
+ 
+   
+    <button  type="submit" [disabled]="checkoutForm.invalid" class="btn " (click)="createOrder()" routerLink="/payments">Go For Payment</button> <!-- Use routerLink directive -->
+  </form>  
+ </div> 
+ </div>
+
+<app-order-item-list [order]="order"></app-order-item-list>
+
+
+<div *ngIf="!isAuth" class="notauth">
+  <h1 class="please">You're Not Login,Please First Go For login</h1>
+  <a routerLink="/login"><button>Login Here</button></a>
+</div>
+

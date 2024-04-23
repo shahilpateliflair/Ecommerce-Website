@@ -1,0 +1,127 @@
+
+
+
+
+
+  
+  
+   
+  <div *ngIf="mensProducts.length > 0">
+    <section class="bg-gray-100 py-4 mt-4">
+      <div class="max-w-4xl px-4">
+        <h2 class="text-2xl font-bold ">Mens Products</h2>
+        <!-- Your content here -->
+      </div>
+    </section>
+    <div class="product-container">
+      <div *ngFor="let product of mensProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+        <div class="imagecontainer">
+          <a [routerLink]="['/product', product._id]">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img [src]="getProductImageUrl(product)" />
+              
+              </div>
+              <div class="flip-card-back">
+                <div class="product-details">
+                  <h2><strong>{{ product.name }}</strong></h2>
+                  <p><strong>Description: </strong>  {{ product.description }}</p>
+                  <p ><strong>Price:</strong> {{ product.price | currency}}</p>
+                  <p class="Mrp"><strong>MRP:</strong> {{ product.MRP | currency }}</p>
+                  <p><strong>Off:</strong>  {{ product.off |currency }}</p>
+                  <p><strong>Origins: </strong> {{ product.origins }}</p>
+                  <p><strong>Deliver Time: </strong> {{ product.deliverTime }} <span> Days</span></p>
+                  <!-- <button class="button1">Add To cart</button> -->
+                </div>
+              </div>
+            </div>
+            </div>
+          </a>
+           </div>
+      </div>
+      </div>
+    </div>
+  
+  
+  
+    
+  <div *ngIf="womensProducts.length > 0">
+    <!-- <h2>Women's Products</h2> -->
+    <section class="bg-gray-100 py-4 mt-4">
+      <div class="max-w-4xl px-4">
+        <h2 class="text-2xl font-bold ">Womens Products</h2>
+        <!-- Your content here -->
+      </div>
+    </section>
+    <div class="product-container" >
+      <div *ngFor="let product of womensProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+        <div class="imagecontainer">
+          <a [routerLink]="['/product', product._id]">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img [src]="getProductImageUrl(product)" /> 
+               
+              </div>
+              <div class="flip-card-back">
+                <div class="product-details">
+                  <h2><strong>{{ product.name }}</strong></h2>
+                  <p><strong>Description: </strong> {{ product.description }}</p>
+                  <p><strong>Price:</strong>  {{ product.price | currency}}</p>
+                  <p class="Mrp"><strong>MRP:</strong> {{ product.MRP| currency }}</p>
+                  <p><strong>Off:</strong> {{ product.off |currency}}</p>
+                  <p><strong>Origins: </strong> {{ product.origins }}</p>
+                  <p><strong>Deliver Time: </strong>  {{ product.deliverTime }}<span> Days</span></p>
+                  <!-- <button class="button1">Add To cart</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <div *ngIf="electronicsProducts.length > 0">
+    <!-- <h2>Men's Products</h2>
+     -->
+     <section class="bg-gray-100 py-4 mt-4">
+      <div class="max-w-4xl px-4">
+        <h2 class="text-2xl font-bold ">Electronics Products</h2>
+        <!-- Your content here -->
+      </div>
+    </section>
+    
+    <div class="product-container">
+      <div *ngFor="let product of electronicsProducts" class="product-card" (mouseenter)="showProductDetails(product._id)" (mouseleave)="activeProductId = null">
+        <div class="imagecontainer">
+          <a [routerLink]="['/product', product._id]">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <!-- <img [src]="'http://localhost:42000/uploadimage/' + product.imageUrl" /> -->
+                <img [src]="getProductImageUrl(product)" />
+               
+              
+              </div>
+              <div class="flip-card-back">
+                <div class="product-details">
+                  <h2><strong>{{ product.name }}</strong></h2>
+                  <p><strong>Description: </strong>  {{ product.description }}</p>
+                  <p><strong>Price:</strong>  {{ product.price|currency }}</p>
+                  <p class="Mrp"><strong>MRP:</strong> {{ product.MRP |currency}}</p>
+                  <p><strong>Off:</strong>{{ product.off|currency }}</p>
+                  <p><strong>Origins: </strong>{{ product.origins }}</p>
+                  <p><strong>Deliver Time: </strong>  {{ product.deliverTime }}<span> Days</span></p>
+                  <!-- <button class="button1">Add To cart</button> -->
+                </div>
+              </div>
+            </div>
+            </div>
+          </a>
+           </div>
+      </div>
+      </div>
+    </div>

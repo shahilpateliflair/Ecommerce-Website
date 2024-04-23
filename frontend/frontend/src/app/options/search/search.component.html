@@ -1,0 +1,184 @@
+<!-- <div class="p-3 py-5 d-flex" >
+  <div class="justify-content-between align-items-center mb-3">
+    <h4 class="text-right">Profile Settings</h4>
+  </div>
+  <form
+    (submit)="addProduct()"
+    enctype="multipart/form-data"
+    class="form-container"
+    [formGroup]="productForm"
+  >
+    <h1>Add Product</h1>
+    <label for="name">Name:</label>
+    <input type="text" id="name" formControlName="name" required />
+
+    <label for="image">Image:</label>
+    <input
+      type="file"
+      id="image"
+      (change)="onFileSelected($event)"
+      accept="image/*"
+      required
+    />
+
+    <label for="address1">Address1:</label>
+    <input type="text" id="address1" formControlName="address1" required />
+
+    <label for="address2">Address2:</label>
+    <input type="text" id="address2" formControlName="address2" required />
+
+    <label for="email">Email:</label>
+    <input type="email" id="email" formControlName="email" required />
+    <label for="mobile">Mobile No:</label>
+    <input type="number" id="mobile" formControlName="mobile" required />
+    
+    <label for="state">State</label>
+    <input type="text" id="state" formControlName="state" required />
+
+    <label for="Country">Country:</label>
+    <input
+      type="text"
+      id="country"
+      formControlName="country"
+      formControlName="country"
+      required
+    />
+
+    <label for="postcode">PostCode:</label>
+    <input
+      type="number"
+      id="postcode"
+      formControlName="postcode"
+      formControlName="postcode"
+      required
+    />
+
+    <label for="age">Age:</label>
+    <input type="number" id="age" formControlName="age" required />
+
+    <button type="submit" class="submit-button">Add Profile</button>
+  </form>
+</div> -->
+<app-header></app-header>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.1/css/all.min.css" integrity="sha256-2XFplPlrFClt0bIdPgpz8H7ojnk10H69xRqd9+uTShA=" crossorigin="anonymous" />
+
+<div class="container">
+<div class="row">
+		<div class="col-12">
+		
+			<div class="my-5" style="margin-top: 5rem;">
+				<h1 style="font-size: 2.5rem; margin-bottom: 1rem;">My Profile</h1>
+				<hr style="border-color: #000;">
+			</div>
+		
+			<form class="file-upload"  (submit)="updateProfile()"
+      enctype="multipart/form-data"
+    
+      [formGroup]="productForm">
+				<div class="row mb-5 gx-5">
+				
+					<div class="col-xxl-8 mb-5 mb-xxl-0">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Contact detail</h4>
+							
+								<div class="col-md-6">
+									<label class="form-label" for="name">FUll Name *</label>
+                  <input type="text" class="form-control" id="name" formControlName="name" required required />
+									
+								</div>
+							
+								<div class="col-md-6">
+									<label class="form-label" for="address1">Address1 *</label>
+									<input type="text" class="form-control" placeholder="" formControlName="address1" required aria-label="Address1" value="Doe">
+								</div>
+							
+								<div class="col-md-6">
+									<label class="form-label" for="address2">Address2 *</label>
+									<input type="text" class="form-control" placeholder="" formControlName="address2" required  aria-label="Address1" value="Doe">
+								</div>
+
+								<div class="col-md-6">
+									<label class="form-label" for="mobile">Phone number1 *</label>
+									<input type="number" class="form-control" id="mobile" formControlName="mobile" required aria-label="Phone number">
+								</div>
+
+						
+								<div class="col-md-6">
+									<label class="form-label" for="mobile11">Alternative Mobile number *</label>
+									<input type="number" class="form-control" id="mobile1" formControlName="mobile1" required aria-label="Phone number">
+								</div>
+								
+								<div class="col-md-6">
+									<label for="email" class="form-label">Email *</label>
+									<input type="email" class="form-control" id="email" required formControlName="email">
+								</div>
+
+								
+
+								<div class="col-md-6">
+									<label for="age" class="form-label">Age *</label>
+									<input type="number" class="form-control" id="number"  formControlName="age">
+								</div>
+								<div class="col-md-6">
+									<label for="state" class="form-label">State*</label>
+									<input type="text" class="form-control" id="state" required formControlName="state">
+								</div>
+
+								<div class="col-md-6">
+									<label for="country" class="form-label">country *</label>
+									<input type="text" class="form-control" id="country" required formControlName="country">
+								</div>
+								<div class="col-md-6">
+									<label for="postcode" class="form-label">Postcode *</label>
+									<input type="number" class="form-control" id="postcode" required formControlName="postcode">
+								</div>
+
+								
+							
+								
+							</div> 
+						</div>
+					</div>
+					
+					<div class="col-xxl-4">
+						<div class="bg-secondary-soft px-4 py-5 rounded">
+							<div class="row g-3">
+								<h4 class="mb-4 mt-0">Upload your profile photo</h4>
+								<div class="text-center">
+							
+									<div class="square position-relative display-2 mb-3" *ngIf="urls.length > 0">
+										
+											<div>
+												<img *ngFor="let url of urls" [src]="url" class="rounded mb-3" width="180">
+											</div>
+										
+									</div>
+									
+									
+									<input type="file" multiple (change)="onFileSelected($event)" accept="image/*"	id="image" required name="file" hidden="">
+									<label class="btn btn-success-soft btn-block" for="image">Upload</label>
+									
+								
+									<p class="text-muted mt-3 mb-0"><span class="me-1">Note:</span>Minimum size 300px x 300px</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div> 
+
+			
+				<div class="row mb-5 gx-5">
+					
+
+				
+				</div> 
+				
+				<div class="gap-3 d-md-flex justify-content-md-end text-center">
+					<button type="button" class="btn btn-danger btn-lg">Updated profile</button>
+					<button type="submit" class="btn btn-primary btn-lg mb-5">Add profile</button>
+				</div>
+			</form> 
+		</div>
+	</div>
+	</div>

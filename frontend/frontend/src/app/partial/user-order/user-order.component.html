@@ -1,0 +1,45 @@
+<!-- component.html -->
+<app-admin-header></app-admin-header>
+<h1>User Orders</h1>
+<div class="table-container">
+<table class="custom-table">
+    <thead>
+      <tr>
+     <th>SR.NO</th>
+        <th>Name</th>
+        <th>UserId</th>
+        <th>Address</th>
+        <th>OrderId</th>
+        
+       
+    
+        <th>Total Price</th>
+        <th>Status</th>
+        <th>CreatedAt</th>
+        <th>Items</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let order of orders let sr = index" [ngClass]="{'highlighted': order.totalPrice > 100}">
+        <td>{{ sr + 1 }}</td>
+        <td>{{ order.name }}</td>
+        <td>{{ order.user }}</td>
+        <td>{{ order.address }}</td>
+      
+        <td>{{ order._id }}</td>
+        <td>{{ order.totalPrice }}</td>
+        <td>{{ order.status }}</td>
+        <td>{{ order.createdAt }}</td>
+        <td>
+          <ul>
+            <li *ngFor="let item of order.items">
+             Item-Id: {{ item.itm}} <br> Total-Price: {{ item.price }} <br> Total-Quantity: {{ item.quantity }}
+            </li>
+          </ul>
+        </td>
+        <!-- <td>{{ order.totalPrice }}</td> -->
+      </tr>
+    </tbody>
+  </table>
+</div>

@@ -1,0 +1,28 @@
+<app-admin-header></app-admin-header>
+<div class="dashboard">
+    <h1>User Data</h1>
+    <div class="table-responsive">
+      <table class="table">
+        <thead>
+          <tr>
+            <th>Sr.No</th>
+            <th>User ID</th>
+            <th>Name</th>
+            <th>Email</th>
+            <th>Address</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let user of users let sr = index" class="table-row"  >
+            <td>{{ sr+1 }}</td>
+            <td>{{ user.id }}</td>
+            <td>{{ user.name }}</td>
+            <td>{{ user.email }}</td>
+            <td>{{ user.address }}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  
+  <!-- (click)="navigateToUserProfile(user.id)" -->

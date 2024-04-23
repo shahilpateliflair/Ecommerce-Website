@@ -1,0 +1,205 @@
+ /* .container {
+    width: 300px; 
+    margin: 0 auto;
+    overflow: hidden;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    margin-top: 125px;
+    border-style: groove;
+  
+   
+  }
+  
+  .container img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; 
+  } 
+  
+  .details {
+    padding: 20px;
+    background-color: #fff;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  
+  .name {
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+  }
+  
+  .favorite {
+    font-size: 20px;
+    color: #e7e3e3;
+  }
+  
+  .rating {
+    margin: 15px 0;
+  }
+  
+  .product-item-footer {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 15px;
+  } 
+
+  .origins{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 2rem;
+   
+
+    
+  }
+   .origins span {
+    margin-right: 5px;
+    color: #555;
+    
+  }
+   
+  .cook-time {
+    font-size: 14px;
+    color: #555;
+  }
+  
+  .price {
+    font-weight: bold;
+    color: #e74c3c;
+  }
+   
+  .btn{
+    margin: 10px 1px;
+    
+  }
+.con1{
+    margin-top: 7px;
+}
+  
+
+    */
+
+    /* Reset some default browser styles */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+  }
+  
+  /* Ensure container fills available width */
+  .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 20px;
+  }
+  
+  
+  .product {
+      display: flex;
+      align-items: flex-start;
+  }
+  .product-image {
+    /* width: 200px; 
+    
+    object-fit: cover;  */
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 10px; 
+    height: 200px;
+}
+
+
+.image {
+  flex: 0 0 auto; 
+  margin-right: 30px;
+  max-width: 30%;
+  overflow: hidden; 
+  width: 100%;
+  height: auto;
+  object-fit: fill;
+  border-radius: 10px; 
+  height: 500px;
+}
+
+
+.image img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+.details {
+  flex: 1; /* Take up remaining space */
+}
+
+/* Header style */
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 10px;
+}
+
+/* Favorite icon style */
+.favorite {
+  font-size: 24px;
+}
+
+/* Description style */
+.description {
+  margin-bottom: 15px;
+}
+
+/* Rating style */
+.rating {
+  margin-bottom: 15px;
+}
+
+/* Origins style */
+.origins {
+  margin-bottom: 15px;
+}
+
+/* Tags style */
+.tags {
+  margin-bottom: 15px;
+}
+
+/* Cook time style */
+.cook-time {
+  margin-bottom: 15px;
+}
+
+/* Price style */
+.price {
+  margin-bottom: 15px;
+}
+
+/* Discount style */
+.discount {
+  margin-bottom: 15px;
+}
+
+/* Button style */
+.btn {
+  padding: 10px 20px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+.btn:hover {
+  background-color: #0056b3;
+}

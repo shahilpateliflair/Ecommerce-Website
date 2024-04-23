@@ -1,0 +1,105 @@
+
+
+<div class="body1">
+  <nav class="navbar">
+    
+    <!-- Menu option -->
+    <aside class="sidebar" [class.visible]="isSidebarOpen">
+      <div class="menu-btn" (click)="toggleSidebar()">
+          <i class="fa fa-bars"></i>
+      </div>
+      
+    </aside>
+     
+  
+    <!-- Search Option -->
+  <div  class="search-container">
+      <input type="text" id="search" #s placeholder="Search..." (keyup.enter)="search(s.value)" [value]="searchTerm">
+      <button type="button" (click)="search(s.value)"><i class="fas fa-search"></i></button>
+    </div>
+  
+  <!-- logo Option -->
+    <div class="logo" [class.disabled]="isSidebarOpen" *ngIf="!isSidebarOpen">
+      <img class="logo" src="assets/ec (1).png">
+  </div>
+  
+  
+  
+  
+  
+  
+  
+  <!-- sidebar -->
+  <div id="menu" [class.visible]="isSidebarOpen">
+    <div class="menu-header">
+        <div class="menu-btn" (click)="toggleSidebar()">
+            <i class="fa fa-bars"></i>
+    </div>
+  
+    <a routerLink="/">
+          <div class="logo">
+            <img class="logo" src="assets/ec (1).png">
+        </div>
+    </a>
+  
+  </div>
+  
+  
+
+  <div class="menu-group" *ngIf="isAuth">
+    <div class="menu-item" >
+      <a routerLink="/admin-dashboard" ><i  class="fa fa-user-circle"></i>home</a>
+    </div>
+  </div>
+
+
+    <!-- <div class="menu-group" >
+      <div class="menu-item" >
+        <a routerLink="/about" ><i class="fa fa-wikipedia-w"></i>Abouts</a>
+      </div>
+    </div> -->
+    <div class="menu-group" *ngIf="isAuth">
+      <div class="menu-item">
+        <a routerLink="/adds"><i class="fa fa-plus-square" aria-hidden="true"></i>Edit</a>
+      </div>
+    </div>
+    <div class="menu-group" *ngIf="isAuth">
+      <div class="menu-item">
+        <a routerLink="/collection"><i class="fa fa-eye" aria-hidden="true"></i>Collections</a>
+      </div>
+    </div>
+    
+    <div class="menu-group" *ngIf="isAuth">
+      <div class="menu-item">
+        <a routerLink="/userdata"><i class="fa fa-users" aria-hidden="true"></i>User Data</a>
+      </div>
+    </div>
+    <div class="menu-group" *ngIf="isAuth">
+      <div class="menu-item">
+        <a routerLink="/userorder"><i class="fa fa-shopping-bag" aria-hidden="true"></i>Orders</a>
+      </div>
+    </div>
+  <!-- <div class="menu-group" *ngIf="isAuth">
+    <div class="menu-item" >
+      <a routerLink="/review"><i class="fa fa-comments" aria-hidden="true"></i>Suggest-Us</a>
+    </div>
+  </div> -->
+ 
+ 
+  <div class="menu-group" *ngIf="isAuth"  >
+        <div class="menu-item" >
+              <a routerLink="/login"  (click)="logout()"><i class="fa fa-sign-out"></i>Logout</a>
+        </div>
+    </div>
+  <div class="menu-group" >
+    <div class="menu-item" >
+      <a routerLink="/login" *ngIf="!isAuth"><i class="fa fa-sign-in"></i>Login</a>
+    </div>
+  </div>
+ 
+  
+  </div>
+  </nav>
+  </div>
+  
+  

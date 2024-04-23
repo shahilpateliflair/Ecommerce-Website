@@ -1,0 +1,108 @@
+<app-header></app-header>
+<app-slider *ngIf="showSlider"></app-slider>
+
+
+<div class="container-11">
+  <div class="product-container">
+    <div
+      *ngFor="let product of searchResults "
+      class="product-card"
+      (mouseenter)="showProductDetails(product._id)"
+      (mouseleave)="activeProductId = null"
+    >
+  
+
+      <div class="imagecontainer">
+        <a [routerLink]="['/product', product._id]">
+          <div class="flip-card">
+            <div class="flip-card-inner">
+              <div class="flip-card-front">
+                <img [src]="getImageUrl(product)"> 
+                <!-- <img [src]="'https://e-commerce-l2js3q893-shahil-patels-projects.vercel.app/' + product.imageUrl" /> -->
+              </div>
+              <div class="flip-card-back">
+                <div class="product-details">
+                  <h2>
+                    <strong>{{ product.name }}</strong>
+                  </h2>
+                  <p>Description: {{ product.description }}</p>
+                  <p>Price: {{ product.price }}</p>
+                  <p>MRP: {{ product.MRP }}</p>
+                  <p>Off: {{ product.off }}</p>
+                  <p>Origins: {{ product.origins }}</p>
+                  <p>
+                    Deliver Time: {{ product.deliverTime }}<span> Days</span>
+                  </p>
+                  <!-- <button class="button1">Add To cart</button> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </a>
+      </div>
+    </div>
+  </div>
+ 
+</div>
+
+
+
+
+
+<app-dynamicproduct></app-dynamicproduct>
+
+<app-footer></app-footer>
+
+<!-- 
+<div class="mainContainer11">
+
+
+  <div class="container111">
+    <ul>
+      <li *ngFor="let product of itm">
+        <a routerLink="/item/{{ product.id }}">
+          <img [src]="product.imageUrl" [alt]="product.name" />
+        </a>
+        <div class="container1">
+          <div class="name">
+            {{ product.name }}
+          </div>
+          <div>
+           <b> {{product.description}}</b>
+          </div>
+         
+          <div class="stars">
+            <star-rating
+              [value]="product.stars"
+              [totalstars]="5"
+              [readonly]="true"
+              checkedcolor="red"
+              uncheckedcolor="black"
+              size="22px"
+            ></star-rating>
+          </div>
+         
+          <div class="product-item-footer">
+            <div class="origins">
+              <span *ngFor="let origins of product.origins">
+                {{ product.origins }}</span
+              >
+            </div>
+            <div class="cook-time">
+              <span>⏲ Deliver in: </span> {{ product.deliverTime }} Days
+            </div>
+            <div class="price">
+              {{  product.price| currency }}
+            </div>
+            <div class="discount">
+              M.R.P: <s>{{ product.MRP | currency }}</s> ({{product.off}}% off)
+            </div>
+           
+        </div>
+    </div>
+</li>
+</ul>
+
+  </div>
+</div>  -->
+<!-- <div class="container1"></div> -->

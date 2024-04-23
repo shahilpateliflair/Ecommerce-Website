@@ -1,0 +1,79 @@
+<app-admin-header></app-admin-header>
+
+<div class="container">
+    <!-- <div class="fixed">
+        <img src="https://cdni.iconscout.com/illustration/premium/thumb/woman-adding-product-to-cart-4268110-3550574.png" alt="Add Product">
+    </div> -->
+<form
+  (submit)="addProduct()"
+  enctype="multipart/form-data"
+  class="form-container"
+  [formGroup]="productForm"
+>
+<h1>Add Product</h1>
+  <label for="name">Name:</label>
+  <input type="text" id="name"     formControlName="name" required />
+
+  
+  <label for="imageUrl">Image URL:</label>
+  <input type="file" id="imageUrl" name="imageUrl" (change)="onFileSelected($event, 'imageUrl')" required />
+
+  <label for="image1">Image 1:</label>
+  <input type="file" id="image1" name="image1" (change)="onFileSelected($event, 'image1')" required />
+
+  <label for="image2">Image 2:</label>
+  <input type="file" id="image2" name="image2" (change)="onFileSelected($event, 'image2')" required />
+
+  <label for="image3">Image 3:</label>
+  <input type="file" id="image3" name="image3" (change)="onFileSelected($event, 'image3')" required />
+
+  <label for="image4">Image 4:</label>
+  <input type="file" id="image4" name="image4" (change)="onFileSelected($event, 'image4')" required />
+ 
+  
+
+  <label for="description">Description:</label>
+  <input
+    type="text"
+    id="description"
+  
+    formControlName="description"
+    required
+  />
+  <label for="categories">categories:</label>
+  <select formControlName="category">
+    <option value="men">Men</option>
+    <option value="women">Women</option>
+    <option value="electronics">Electronics</option>
+    <!-- Add other categories as needed -->
+  </select>
+  <!-- accept="image/*" -->
+  <label for="MRP">MRP</label>
+  <input type="text" id="MRP"    formControlName="MRP" required />
+
+  <label for="off">Off:</label>
+  <input type="text" id="off" formControlName="off"    formControlName="off" required />
+
+  <label for="tag">Tag:</label>
+  <input type="text" id="tag" formControlName="tag"    formControlName="tag" required />
+
+  <label for="price">Price:</label>
+  <input type="number" id="price"  formControlName="price" required />
+
+  <label for="origins">Origins:</label>
+  <input type="text" id="origins"  formControlName="origins" required />
+
+
+  <label for="deliverTime">Deliver Time:</label>
+  <input
+    type="number"
+    id="Deliver"
+    formControlName="deliverTime"
+   
+    required
+  />
+  
+  <button type="submit" class="submit-button">Add Product</button>
+</form>
+
+</div>

@@ -1,0 +1,15 @@
+<!-- <div class="slider-container">
+    <div class="slider">
+      <img #imageSlider [src]="images" >
+    </div>
+  </div>
+   -->
+
+   <section>
+    <div id="containerSlider">
+      <div *ngFor="let image of images" class="slidingImage" [class.active]="currentIndex === image.index">
+        <img [src]="image.src" [alt]="image.alt">
+      </div>
+    </div>
+  </section>
+  

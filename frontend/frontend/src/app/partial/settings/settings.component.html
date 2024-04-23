@@ -1,0 +1,9 @@
+<div class="settings-container">
+    <h2>Settings</h2>
+    <label class="switch">
+      <input type="checkbox" [(ngModel)]="darkMode" (change)="toggleDarkMode()">
+      <span class="slider"></span>
+    </label>
+    <span>{{ darkMode ? 'Dark Mode' : 'Light Mode' }}</span>
+  </div>
+  

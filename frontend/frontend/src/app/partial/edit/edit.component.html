@@ -1,0 +1,58 @@
+
+<form
+  (submit)="addProduct()"
+  enctype="multipart/form-data"
+  class="form-container"
+  [formGroup]="productForm"
+>
+  <label for="name">Name:</label>
+  <input type="text" id="name"     formControlName="name" required />
+
+  <label for="image">Image:</label>
+  <input
+    type="file"
+    id="image"
+    (change)="onFileSelected($event)"
+      accept="image/*"
+     
+    required
+  />
+  
+  <label for="description">Description:</label>
+  <input
+    type="text"
+    id="description"
+  
+    formControlName="description"
+    required
+  />
+  <!-- accept="image/*" -->
+  <label for="MRP">MRP</label>
+  <input type="text" id="MRP"    formControlName="MRP" required />
+
+
+  <label for="off">Off:</label>
+  <input type="text" id="off" formControlName="off"    formControlName="off" required />
+
+  <label for="price">Price:</label>
+  <input type="number" id="price"  formControlName="price" required />
+
+  <label for="origins">Origins:</label>
+  <input type="text" id="origins"  formControlName="origins" required />
+
+  <label for="tag">Tag</label>
+  <input type="text" id="tag"    formControlName="tag" required />
+
+  <label for="deliverTime">Deliver Time:</label>
+  <input
+    type="number"
+    id="Deliver"
+    formControlName="deliverTime"
+   
+    required
+  />
+  <button type="button" (click)="updateProduct()" [disabled]="!isFormDirty" class="submit-button">Update</button>
+  <button type="submit" class="submit-button">Add Product</button>
+</form>
+
+

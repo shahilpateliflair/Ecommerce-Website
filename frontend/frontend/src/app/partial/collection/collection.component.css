@@ -1,0 +1,164 @@
+
+.product-container {
+
+  margin-top: 35px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between; /* Items display side by side with space between */
+  gap: 30px;
+}
+
+.product-card {
+  
+  width: calc(33.33% - 20px); /* Adjust the width as needed */
+  height: auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.imagecontainer {
+  width: 100%;
+  height: 400px; 
+  overflow: hidden;
+  border-radius: 20px;
+  position: relative;
+}
+.Mrp {
+  color: red; 
+  text-decoration: line-through
+
+}
+.imagecontainer img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+  transition: filter 0.3s ease;
+
+}
+
+.product-card:hover .imagecontainer img {
+  filter: blur(8px); 
+}
+
+.flip-card {
+  background-color: transparent;
+  width: 100%;
+  height: 100%;
+  perspective: 1000px; 
+}
+
+.flip-card-inner {
+  width: 100%;
+  height: 100%;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg); 
+}
+
+.flip-card-front, .flip-card-back {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  backface-visibility: hidden; 
+}
+
+.flip-card-front {
+  z-index: 1;
+  
+}
+
+.flip-card-back {
+  transform: rotateY(180deg);
+  background-color: #f9f9f9;
+  color: #000;
+  padding: 20px;
+  border-radius: 20px;
+ 
+}
+
+.product-details {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.button-group {
+  display: flex;
+  justify-content: center;
+  margin-top: 20px;
+}
+
+.btn-delete {
+  background-color: #dc3545;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  margin-right: 10px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.btn-delete:hover {
+  background-color: #c82333;
+}
+
+
+.button1 {
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  outline: none;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.button1::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(45deg, #FF8C00, #FFD700);
+  z-index: -1;
+  transition: all 0.3s ease;
+}
+
+
+.button1:hover::before {
+  transform: scale(1.5);
+}
+
+
+.button1::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 50%;
+  z-index: -1;
+  transition: all 0.3s ease;
+  transform: scale(0);
+}
+
+
+.button1:active::after {
+  width: 150%;
+  height: 150%;
+  transform: translate(-50%, -50%) scale(1);
+}
